@@ -1,4 +1,17 @@
-![image](https://github.com/OmarKhateeb023/telegram-chat-bot/assets/142600750/455ba144-1389-4764-9a2e-fd15a781c8ab)# My Project
+
+## How to run
+1) Install pytohn 3.8 or later.  
+  Linux: `sudo apt-get install python3.8`  
+  Windows: download from `https://www.python.org/downloads/windows/`. Make sure to select the option to add Python to your system's PATH environment variable during the installation process  
+3) create a python environment.`python -m venv myenv.`
+4) activate the environment.  
+    Linux:`myenv\Scripts\activate.bat`  
+    Windows: `source myenv/bin/activate`  
+4) install modules from requirement files. `pip install -r requirements.txt`
+5) run main.py.`python main.py`
+
+
+
 ## weekly report
 
 ## until 4/3 
