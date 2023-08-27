@@ -10,7 +10,11 @@
 4) install modules from requirement files. `pip install -r requirements.txt`
 5) run main.py.`python main.py`
 
-
+### Note: 
+Need to set the following environment variables:
+1) TELEGRAM_BOT_TOKEN: A token for the telegram bot father.
+2) MEDIASTACK_ACCESS_KEY: A token to access the Medastack API.
+3) OPENAI_API_KEY: A token to acces OpenAI API.
 
 ## weekly report
 
