@@ -16,7 +16,7 @@ from telegram import ForceReply, Update, ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters, JobQueue
 
 
-from api_tokens import TELEGRAM_BOT_TOKEN
+from api_tokens import TELEGRAM_BOT_TOKEN , OPENAI_API_KEY
 from article_extractor import summarise_link,get_latest_news, ExtractedArticle
 from exceptions import InvalidArticleLink
 from dotenv import load_dotenv
@@ -25,7 +25,7 @@ load_dotenv()
 
 subscribed_users = dict()
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = OPENAI_API_KEY
 
 
 class UserCommand(Enum):
@@ -108,13 +108,12 @@ async def do_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.message.chat_id
     last_command = users_last_command.get(chat_id, None)
 
-    match last_command:
-        case UserCommand.summarise:
-            await do_summarise(update, context)
-        case UserCommand.subscribe:
-            await do_subscribe(update, context)
-        case _:
-            pass
+    if last_command == UserCommand.summarise:
+        await do_summarise(update, context)
+    elif last_command == UserCommand.subscribe:
+        await do_subscribe(update, context)
+    else:
+        pass
 
     users_last_command.pop(chat_id, None)
     await send_command_list(update, context)

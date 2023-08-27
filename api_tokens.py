@@ -1,2 +1,5 @@
-TELEGRAM_BOT_TOKEN = "" # add telegram bot token
-MEDIASTACK_ACCESS_KEY = "" # add mediastack access key
+import os
+
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+MEDIASTACK_ACCESS_KEY = os.environ.get('MEDIASTACK_ACCESS_KEY')
